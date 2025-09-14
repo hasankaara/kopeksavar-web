@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Köpeksavar</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/kopeksavar.png">
+<style>
+/* ------------------ Temel Stil ------------------ */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* yatay ortala */
+    align-items: center;     /* dikey ortala */
+    background: rgb(240, 240, 240);
+}
+
+#startBtn {
+    width: 70vmin;  /* ekran boyutuna göre genişlik */
+    height: 70vmin; /* ekran boyutuna göre yükseklik */
+    border-radius: 50%; /* daire yap */
+    font-size: 5vmin; /* yazı boyutu ekran boyutuna göre */
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(0, 100, 205); /* başlangıç mavi */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#startBtn:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<!-- Tek Buton -->
+<button id="startBtn">Başlat</button>
+
+<script>
+// ------------------ JS Kod ------------------
+
+// 18 kHz ses dosyasını yükle
+const audio = new Audio('assets/kopeksavar_18khz.wav');
+audio.loop = true; // sürekli çalması için
+
+const btn = document.getElementById('startBtn');
+let isPlaying = false;
+
+btn.addEventListener('click', () => {
+    if (!isPlaying) {
+        // Ses başlat
+        audio.play();
+
+        // Buton metni ve rengi değişiyor
+        btn.textContent = 'Durdur';
+        btn.style.backgroundColor = 'rgb(220, 20, 60)'; // kırmızı
+        isPlaying = true;
+    } else {
+        // Ses durdur
+        audio.pause();
+        audio.currentTime = 0; // başa al
+
+        // Buton metni ve rengi değişiyor
+        btn.textContent = 'Başlat';
+        btn.style.backgroundColor = 'rgb(34, 239, 34)'; // yeşil
+        isPlaying = false;
+    }
+});
+</script>
+</body>
+</html>

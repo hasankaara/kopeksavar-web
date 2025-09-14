@@ -1,0 +1,33 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* yatay ortala */
+    align-items: center;     /* dikey ortala */
+    background: rgb(240, 240, 240);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 20px 40px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(0, 100, 205); /* Başlangıç mavi */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
